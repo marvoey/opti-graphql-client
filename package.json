@@ -2,6 +2,7 @@
   "name": "opti-graphql-client",
   "version": "0.1.1",
   "description": "GraphQL client module for Opti projects",
+  "author": "Marvin Oey <marvin.oey@optimizely.com>",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -25,7 +26,6 @@
     "opti",
     "typescript"
   ],
-  "author": "",
   "license": "MIT",
   "repository": {
     "type": "git",

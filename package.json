@@ -1,6 +1,6 @@
 {
   "name": "opti-graphql-client",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "GraphQL client module for Opti projects",
   "type": "module",
   "main": "dist/index.js",

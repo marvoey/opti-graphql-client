@@ -27,6 +27,9 @@
     "typescript"
   ],
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/marvoey/opti-graphql-client.git"

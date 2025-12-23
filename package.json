@@ -1,6 +1,6 @@
 {
   "name": "@optimarvin/opti-graphql-client",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "GraphQL client module for Opti projects",
   "author": "Marvin Oey <marvin.oey@optimizely.com>",
   "type": "module",

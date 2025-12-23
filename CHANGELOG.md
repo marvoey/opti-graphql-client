@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.9](https://github.com/marvoey/opti-graphql-client/compare/v0.1.8...v0.1.9) (2025-12-23)
+
+
+### Features
+
+* fix js issue ([6f26ceb](https://github.com/marvoey/opti-graphql-client/commit/6f26ceba45e6b717abcca58390dfbef6495f2067))
+
 ### [0.1.8](https://github.com/marvoey/opti-graphql-client/compare/v0.1.7...v0.1.8) (2025-12-23)
 
 

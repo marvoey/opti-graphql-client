@@ -5,17 +5,36 @@
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "CHANGELOG.md"
+  ],
   "scripts": {
     "build": "tsc",
     "watch": "tsc --watch",
-    "prepublishOnly": "yarn build"
+    "prepublishOnly": "yarn build",
+    "release": "standard-version",
+    "release:minor": "standard-version --release-as minor",
+    "release:major": "standard-version --release-as major",
+    "release:patch": "standard-version --release-as patch"
   },
   "keywords": [
     "graphql",
-    "client"
+    "client",
+    "graphql-client",
+    "opti",
+    "typescript"
   ],
   "author": "",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "bugs": {
+    "url": ""
+  },
+  "homepage": "",
   "dependencies": {
     "crypto-js": "^4.2.0",
     "graphql": "^16.8.1",
@@ -23,6 +42,7 @@
   },
   "devDependencies": {
     "@types/crypto-js": "^4.2.1",
+    "standard-version": "^9.5.0",
     "typescript": "^5.3.3"
   }
 }

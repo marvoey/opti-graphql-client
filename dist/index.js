@@ -1,7 +1,7 @@
 import { GraphQLClient } from 'graphql-request';
-import Base64 from 'crypto-js/enc-base64';
-import hmacSHA256 from 'crypto-js/hmac-sha256';
-import md5 from 'crypto-js/md5';
+import Base64 from 'crypto-js/enc-base64.js';
+import hmacSHA256 from 'crypto-js/hmac-sha256.js';
+import md5 from 'crypto-js/md5.js';
 export class OptiGraphQLClient {
     constructor(config) {
         const endpoint = config.baseUrl + config.path;

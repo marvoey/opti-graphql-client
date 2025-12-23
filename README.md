@@ -5,13 +5,13 @@ A TypeScript GraphQL client for Opti projects with built-in HMAC and single-key 
 ## Installation
 
 ```bash
-npm install opti-graphql-client
+npm install @optimarvin/opti-graphql-client
 ```
 
 or
 
 ```bash
-yarn add opti-graphql-client
+yarn add @optimarvin/opti-graphql-client
 ```
 
 ## Features

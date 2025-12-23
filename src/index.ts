@@ -3,6 +3,13 @@ import Base64 from 'crypto-js/enc-base64';
 import hmacSHA256 from 'crypto-js/hmac-sha256';
 import md5 from 'crypto-js/md5';
 
+/**
+ * Generic typed document that can be converted to a string
+ */
+export interface TypedDocument<TResult = any, TVariables = any> {
+  toString(): string;
+}
+
 export interface OptiGraphQLClientConfig {
   baseUrl: string;
   path: string;
@@ -33,8 +40,12 @@ export class OptiGraphQLClient {
     });
   }
 
-  async query<T = any>(query: string, variables?: Record<string, any>): Promise<T> {
-    return this.client.request<T>(query, variables);
+  async query<TResult = any, TVariables extends Record<string, any> = Record<string, any>>(
+    query: TypedDocument<TResult, TVariables> | string,
+    variables?: TVariables
+  ): Promise<TResult> {
+    const queryString = typeof query === 'string' ? query : query.toString();
+    return this.client.request<TResult>(queryString, variables);
   }
 
   setHeaders(headers: Record<string, string>): void {

@@ -1,3 +1,9 @@
+/**
+ * Generic typed document that can be converted to a string
+ */
+export interface TypedDocument<TResult = any, TVariables = any> {
+    toString(): string;
+}
 export interface OptiGraphQLClientConfig {
     baseUrl: string;
     path: string;
@@ -14,7 +20,7 @@ export interface OptiGraphQLClientConfig {
 export declare class OptiGraphQLClient {
     private client;
     constructor(config: OptiGraphQLClientConfig);
-    query<T = any>(query: string, variables?: Record<string, any>): Promise<T>;
+    query<TResult = any, TVariables extends Record<string, any> = Record<string, any>>(query: TypedDocument<TResult, TVariables> | string, variables?: TVariables): Promise<TResult>;
     setHeaders(headers: Record<string, string>): void;
     setHeader(key: string, value: string): void;
     private createHmacSignature;

@@ -14,7 +14,8 @@ export class OptiGraphQLClient {
         });
     }
     async query(query, variables) {
-        return this.client.request(query, variables);
+        const queryString = typeof query === 'string' ? query : query.toString();
+        return this.client.request(queryString, variables);
     }
     setHeaders(headers) {
         this.client.setHeaders(headers);

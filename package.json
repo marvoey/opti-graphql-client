@@ -1,0 +1,28 @@
+{
+  "name": "opti-graphql-client",
+  "version": "0.1.0",
+  "description": "GraphQL client module for Opti projects",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "prepublishOnly": "yarn build"
+  },
+  "keywords": [
+    "graphql",
+    "client"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "crypto-js": "^4.2.0",
+    "graphql": "^16.8.1",
+    "graphql-request": "^6.1.0"
+  },
+  "devDependencies": {
+    "@types/crypto-js": "^4.2.1",
+    "typescript": "^5.3.3"
+  }
+}

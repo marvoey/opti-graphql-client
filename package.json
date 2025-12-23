@@ -29,12 +29,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/marvoey/opti-graphql-client.git"
   },
   "bugs": {
-    "url": ""
+    "url": "https://github.com/marvoey/opti-graphql-client/issues"
   },
-  "homepage": "",
+  "homepage": "https://github.com/marvoey/opti-graphql-client#readme",
   "dependencies": {
     "crypto-js": "^4.2.0",
     "graphql": "^16.8.1",

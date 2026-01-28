@@ -2,6 +2,7 @@ import { GraphQLClient } from 'graphql-request';
 import Base64 from 'crypto-js/enc-base64.js';
 import hmacSHA256 from 'crypto-js/hmac-sha256.js';
 import md5 from 'crypto-js/md5.js';
+import Utf8 from 'crypto-js/enc-utf8.js';
 
 /**
  * Generic typed document that can be converted to a string
@@ -21,6 +22,10 @@ export interface OptiGraphQLClientConfig {
   } | {
     type: 'single-key';
     token: string;
+  } | {
+    type: 'basic';
+    username: string;
+    password: string;
   };
 }
 
@@ -30,9 +35,14 @@ export class OptiGraphQLClient {
   constructor(config: OptiGraphQLClientConfig) {
     const endpoint = config.baseUrl + config.path;
 
-    const middleware = config.auth.type === 'hmac'
-      ? this.createHmacMiddleware(config.auth.appKey, config.auth.secret)
-      : this.createSingleKeyMiddleware(config.auth.token);
+    let middleware;
+    if (config.auth.type === 'hmac') {
+      middleware = this.createHmacMiddleware(config.auth.appKey, config.auth.secret);
+    } else if (config.auth.type === 'single-key') {
+      middleware = this.createSingleKeyMiddleware(config.auth.token);
+    } else {
+      middleware = this.createBasicAuthMiddleware(config.auth.username, config.auth.password);
+    }
 
     this.client = new GraphQLClient(endpoint, {
       headers: config.headers,
@@ -101,6 +111,22 @@ export class OptiGraphQLClient {
   private createSingleKeyMiddleware(token: string) {
     return async (request: any) => {
       const authHeader = `epi-single ${token}`;
+
+      return {
+        ...request,
+        headers: {
+          ...request.headers,
+          'Authorization': authHeader
+        }
+      };
+    };
+  }
+
+  private createBasicAuthMiddleware(username: string, password: string) {
+    return async (request: any) => {
+      const credentials = Utf8.parse(`${username}:${password}`);
+      const base64Credentials = Base64.stringify(credentials);
+      const authHeader = `Basic ${base64Credentials}`;
 
       return {
         ...request,

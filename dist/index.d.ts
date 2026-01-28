@@ -15,6 +15,10 @@ export interface OptiGraphQLClientConfig {
     } | {
         type: 'single-key';
         token: string;
+    } | {
+        type: 'basic';
+        username: string;
+        password: string;
     };
 }
 export declare class OptiGraphQLClient {
@@ -26,5 +30,6 @@ export declare class OptiGraphQLClient {
     private createHmacSignature;
     private createHmacMiddleware;
     private createSingleKeyMiddleware;
+    private createBasicAuthMiddleware;
 }
 export * from 'graphql-request';
